@@ -1,0 +1,14 @@
+.inputField {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.content {
+  background: #D0E5FF;
+  padding: 20px;
+  color: #00214B;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.8;
+}
