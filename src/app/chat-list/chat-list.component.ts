@@ -9,12 +9,18 @@ import {MessageServiceService} from "../message-service.service";
 export class ChatListComponent implements OnInit {
   allMessages: string [] = [];
   private userMessage: any;
+  private answerGIF: any;
 
-  constructor(private data: MessageServiceService) { }
+  constructor(private data: MessageServiceService, private gifData: MessageServiceService) { }
 
   ngOnInit() {
     this.userMessage = this.data.data.subscribe((data) => {
       console.log('Subscriber B:', data);
+      this.addMessageToList(data);
+    });
+
+    this.answerGIF = this.data.gifData.subscribe((data) => {
+      console.log('GIF:', data);
       this.addMessageToList(data);
     });
   }

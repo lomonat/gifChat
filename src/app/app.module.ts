@@ -4,6 +4,8 @@ import { ChatModule } from "./chat/chat.module";
 
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     ChatModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
