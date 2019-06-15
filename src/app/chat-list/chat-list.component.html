@@ -1,1 +1,5 @@
-<div *ngFor="let msg of allMessages">{{msg}}<div>
+<div *ngFor="let msg of allMessages">
+  <div *ngIf='isObject(msg)'>  <img [src]="extractImgUrl(msg)" /></div>
+  <div *ngIf='isString(msg)'> {{msg}}</div>
+
+  <div>

@@ -27,4 +27,19 @@ export class ChatListComponent implements OnInit {
   addMessageToList(msg) {
     this.allMessages.push(msg);
   }
+
+  extractImgUrl(data) {
+    if (data.data !== undefined) {
+      console.log(data.data[0].url)
+      console.log(data)
+      return data.data[0].url;
+    }
+  }
+
+  isObject(msg) {
+    return typeof msg === 'object';
+  }
+  isString(msg) {
+    return typeof msg === 'string';
+  }
 }
