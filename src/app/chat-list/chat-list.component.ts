@@ -15,12 +15,10 @@ export class ChatListComponent implements OnInit {
 
   ngOnInit() {
     this.userMessage = this.data.data.subscribe((data) => {
-      console.log('Subscriber B:', data);
       this.addMessageToList(data);
     });
 
     this.answerGIF = this.data.gifData.subscribe((data) => {
-      console.log('GIF:', data);
       this.addMessageToList(data);
     });
   }
@@ -30,9 +28,7 @@ export class ChatListComponent implements OnInit {
 
   extractImgUrl(data) {
     if (data.data !== undefined) {
-      console.log(data.data[0].url)
-      console.log(data)
-      return data.data[0].url;
+      return data.data[0].images.preview_gif.url;
     }
   }
 
