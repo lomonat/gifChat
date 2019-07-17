@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 const URL = "http://api.giphy.com/v1/gifs/search?q=";
 const API_KEY = '&api_key=wYpU79NTKnDDmbjatNSJgtDsim1uJyKK';
-const LIMIT = '&limit=1';
+const LIMIT = '&limit=10';
 
 
 @Injectable({

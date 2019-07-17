@@ -13,8 +13,8 @@ export class ChatInputComponent implements OnInit {
   constructor(private data: MessageServiceService, private gifData: MessageServiceService) { }
 
   ngOnInit() {
-    this.data.data.subscribe(message => this.message = message);
-    this.gifData.data.subscribe(message => this.gif = message);
+   // this.data.data.subscribe(message => this.message = message);
+   // this.gifData.data.subscribe(message => this.gif = message);
 
   }
   newMessage(msg) {

@@ -1,4 +1,6 @@
-<div *ngFor="let msg of allMessages">
-  <div *ngIf='isObject(msg)'>  <img [src]="extractImgUrl(msg)" /></div>
-  <div *ngIf='isString(msg)'> {{msg}}</div>
+<div *ngFor="let msg of chatMsgs">
+  <div class="userInput" *ngIf='isString(msg)'> {{msg}}</div>
+  <div *ngIf='isObject(msg)' class="gifResponse">
+    <img [src]="msg.apiAnswer" />
+  </div>
   <div>

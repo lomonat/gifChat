@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {MessageServiceService} from "../message-service.service";
 
 @Component({
@@ -6,29 +6,31 @@ import {MessageServiceService} from "../message-service.service";
   templateUrl: './chat-list.component.html',
   styleUrls: ['./chat-list.component.css']
 })
-export class ChatListComponent implements OnInit {
-  allMessages: string [] = [];
-  private userMessage: any;
-  private answerGIF: any;
+export class ChatListComponent  {
+  public chatMsgs: any = [];
 
-  constructor(private data: MessageServiceService, private gifData: MessageServiceService) { }
-
-  ngOnInit() {
-    this.userMessage = this.data.data.subscribe((data) => {
-      this.addMessageToList(data);
+  constructor(private data: MessageServiceService, private gifData: MessageServiceService) {
+    data.data.subscribe((val) => {
+      if(val) {
+        this.addMessageToList('userInput', val);
+      }
     });
-
-    this.answerGIF = this.data.gifData.subscribe((data) => {
-      this.addMessageToList(data);
+    data.gifData.subscribe((val) => {
+      if(val) {
+        this.addMessageToList('apiAnswer', this.extractImgUrl(val));
+      }
     });
   }
-  addMessageToList(msg) {
-    this.allMessages.push(msg);
+
+  addMessageToList(type, msg) {
+    if (msg) {
+      type === 'apiAnswer' ? this.chatMsgs.push({'apiAnswer': msg}) : this.chatMsgs.push(msg);
+    }
   }
 
   extractImgUrl(data) {
-    if (data.data !== undefined) {
-      return data.data[0].images.preview_gif.url;
+    if (data.data) {
+      return data.data[this.getRandomIndex()].images.preview_gif.url;
     }
   }
 
@@ -37,5 +39,8 @@ export class ChatListComponent implements OnInit {
   }
   isString(msg) {
     return typeof msg === 'string';
+  }
+  getRandomIndex() {
+    return Math.floor(Math.random() * 10);
   }
 }
