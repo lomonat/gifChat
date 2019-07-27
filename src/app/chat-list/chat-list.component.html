@@ -1,6 +1,6 @@
-<div *ngFor="let msg of chatMsgs">
+<div class="chat" *ngFor="let msg of chatMsgs">
   <div class="userInput" *ngIf='isString(msg)'> {{msg}}</div>
-  <div *ngIf='isObject(msg)' class="gifResponse">
+  <div class="gifResponse" *ngIf='isObject(msg)' >
     <img [src]="msg.apiAnswer" />
   </div>
   <div>

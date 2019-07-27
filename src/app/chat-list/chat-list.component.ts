@@ -17,6 +17,7 @@ export class ChatListComponent  {
     });
     data.gifData.subscribe((val) => {
       if(val) {
+        console.log('VAL!', val)
         this.addMessageToList('apiAnswer', this.extractImgUrl(val));
       }
     });
@@ -30,7 +31,8 @@ export class ChatListComponent  {
 
   extractImgUrl(data) {
     if (data.data) {
-      return data.data[this.getRandomIndex()].images.preview_gif.url;
+     // return data.data[this.getRandomIndex()].images.preview_gif.url;
+      return data.data.images.preview_gif.url;
     }
   }
 

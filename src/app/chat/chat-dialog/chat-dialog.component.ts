@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatInputComponent} from "../../chat-input/chat-input.component";
 
 @Component({
   selector: 'app-chat-dialog',
